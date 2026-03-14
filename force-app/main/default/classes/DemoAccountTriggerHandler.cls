@@ -3,6 +3,11 @@ public with sharing class DemoAccountTriggerHandler {
         for (Account acc : newAccounts) {
             // Logic to be executed before insert
             System.debug('Processing Account: ' + acc.Name);
+            
+            // JATAKA IMPACT TEST: Adding logic to trigger Semantic Diff
+            if(acc.Phone == null){
+                System.debug('Phone is missing!');
+            }
         }
     }
 }
